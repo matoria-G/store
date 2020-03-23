@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   def test
-    puts("hello2")
+    puts("hello22")
     binding.pry
     User.create
   end
