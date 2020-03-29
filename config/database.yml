@@ -14,14 +14,14 @@
 # Configure Using Gemfile
 # gem 'pg'
 #
-development:
-  adapter: postgresql
-  encoding: unicode
-  database: postgres
-  pool: 5
-  username: postgres
-  password:
-  timeout: 5000
+# development:
+#   adapter: postgresql
+#   encoding: unicode
+#   database: postgres
+#   pool: 5
+#   username: postgres
+#   password:
+#   timeout: 5000
  
   # Connect on a TCP socket. Omitted by default since the client uses a
   # domain socket that doesn't need configuration. Windows does not have
@@ -44,11 +44,27 @@ development:
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
-test:
+# test:
+#   adapter: postgresql
+#   encoding: unicode
+#   database: myapp_test
+#   pool: 5
+#   username: brenden
+#   password:
+#   timeout: 5000
+default: &default
   adapter: postgresql
   encoding: unicode
-  database: myapp_test
-  pool: 5
-  username: brenden
+  host: db
+  username: postgres
   password:
-  timeout: 5000
+  pool: 5
+
+development:
+  <<: *default
+  database: postgres
+
+
+test:
+  <<: *default
+  database: myapp_test
